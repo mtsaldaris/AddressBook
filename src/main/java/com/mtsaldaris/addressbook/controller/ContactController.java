@@ -23,12 +23,17 @@ public class ContactController {
         this.contactService = contactService;
     }
 
-    @GetMapping
+    @GetMapping("/getAll")
     public List<Contact> getContacts() {
         return contactService.getContacts();
     }
 
-    @PostMapping
+    @GetMapping("/getUnique")
+    public List<Contact> getUniqueContacts() {
+        return contactService.getUniqueContacts();
+    }
+
+    @PostMapping("/add")
     public void registerNewContact(@RequestBody Contact contact) {
         contactService.addNewContact(contact);
     }
