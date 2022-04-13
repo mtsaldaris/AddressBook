@@ -6,18 +6,18 @@ a user to store (between successive runs of the program) the name and phone numb
 - To display the list of friends and their corresponding phone numbers sorted by their name.
 - Given another address book that may or may not contain the same friends, display the list of friends that are unique to each address book (the union of all the relative complements).
 
-## Assumptions:
+### Assumptions:
 
 # Usage
 
-## React - Frontend
+### React - Frontend
 
 [TODO]
 
-## Java (Spring Boot) - Backend
+### Java (Spring Boot) - Backend
 
 [TODO]
 
-# REST Endpoints
+## REST Endpoints
 
 [TODO]
