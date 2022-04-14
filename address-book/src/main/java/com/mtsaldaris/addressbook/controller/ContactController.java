@@ -15,6 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "api/v1/contact")
+@CrossOrigin("http://localhost:3000/")
 public class ContactController {
 
     private final ContactService contactService;
