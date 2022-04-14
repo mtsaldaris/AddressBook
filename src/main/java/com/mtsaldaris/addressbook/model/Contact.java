@@ -16,9 +16,7 @@ import static javax.persistence.GenerationType.SEQUENCE;
  */
 
 @Entity(name = "Contact")
-@Table(
-        name = "AddressBook"
-)
+@Table(name = "AddressBook")
 public class Contact {
     // Use @Id annotation to signify that "id" is the primary key
     @Id
@@ -42,25 +40,14 @@ public class Contact {
 
     // Ensure value is not null and not just white space
     @NotBlank(message = "First name is required")
-    // Validate first name is alphanumeric and can have hyphen or space
-    @Pattern(regexp = "^[a-zA-Z0-9\\- ]*$", message = "First name must be alphanumeric, can contain hyphen & space")
+    // Validate name is alphanumeric and can have hyphen or space
+    @Pattern(regexp = "^[a-zA-Z0-9\\- ]*$", message = "Name must be alphanumeric, can contain hyphen & space")
     @Column(
             name = "first_name",
             nullable = false,
             columnDefinition = "TEXT"
     )
-    private String firstName;
-
-    // Ensure value is not null and not just white space
-    @NotBlank(message = "Last name is required")
-    // Validate last name is alphanumeric and can have hyphen or space
-    @Pattern(regexp = "^[a-zA-Z0-9\\- ]*$", message = "Last name must be alphanumeric, can contain hyphen & space")
-    @Column(
-            name = "last_name",
-            nullable = false,
-            columnDefinition = "TEXT"
-    )
-    private String lastName;
+    private String name;
 
     // Ensure value is not null and not just white space
     @NotBlank(message = "Phone number is required")
@@ -76,11 +63,9 @@ public class Contact {
     public Contact() {
     }
 
-    public Contact(String firstName,
-                   String lastName,
+    public Contact(String name,
                    String phoneNumber) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.name = name;
         this.phoneNumber = phoneNumber;
     }
 
@@ -93,20 +78,12 @@ public class Contact {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getPhoneNumber() {
@@ -124,8 +101,7 @@ public class Contact {
     public String toString() {
         return "Contact{" +
                 "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
+                ", name='" + name + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 '}';
     }

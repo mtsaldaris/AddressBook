@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /*
-    Contact Controller Class implements
+    Contact Controller Class
+     - Acts as the RESTful API layer where requests come in to the application
+     - Leverages the Contact Service to GET/POST Contact data
  */
 
 @RestController
