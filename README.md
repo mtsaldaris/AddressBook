@@ -18,11 +18,11 @@ A PostgreSQL database is used for this application. In order to connect to the d
 Database connection configurations can be changed in file: `address-book\src\main\resources\application.properties`
 
 Compulsary changes to connect to db:
-`
-- spring.datasource.url=jdbc:postgresql://localhost:5432/[DATABASE_NAME]
-- spring.datasource.username=[USERNAME]
-- spring.datasource.password=[PASSWORD]
-`
+```
+spring.datasource.url=jdbc:postgresql://localhost:5432/[DATABASE_NAME]
+spring.datasource.username=[USERNAME]
+spring.datasource.password=[PASSWORD]
+```
 
 ### Java (Spring Boot) - Backend
 
