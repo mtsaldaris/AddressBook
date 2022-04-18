@@ -1,7 +1,6 @@
 import {useState} from "react";
 import Modal  from "@mui/material/Modal";
 import TextField from '@mui/material/TextField';
-
 import styled from 'styled-components';
 
 // Styled componenet declarations
@@ -12,7 +11,6 @@ const Text = styled.div`
   font-size: 28px;
   margin-top: 20px;
 `;
-
 const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -36,18 +34,15 @@ const Form = styled.form`
   align-items: center;
   padding: 20px;
 `;
-
 const FormItem = styled.div`
   display: flex;
   flex-direction: column;
   min-width: 250px;
   margin: 10px 0px;
 `;
-
 const FormButtons = styled.div`
   margin: 20px 0px;
 `;
-
 const Button = styled.button`
   padding: 7px;
   margin-right: 5px;
@@ -63,7 +58,6 @@ const Button = styled.button`
     background-color: ${(props) => props.hoverColor};
   }
 `;
-
 const ErrorMessage = styled.span`
   color: red;
   font-size: 14px;
@@ -71,6 +65,7 @@ const ErrorMessage = styled.span`
   margin: 5px 0px;
 `;
 
+// Default values for newContact object
 const defaultValues = {
   firstName: "",
   lastName: "",
@@ -89,6 +84,7 @@ export const AddContact = () => {
   const [lastNameError, setLastNameError] = useState([]);
   const [phoneNumberError, setPhoneNumberError] = useState([]);
   
+  // Handle changes to input fields and assign values to newContact object
   const handleChange = (e) => {
     const {name, value} = e.target;
     setNewContact({
@@ -97,6 +93,7 @@ export const AddContact = () => {
     });
   };
 
+  // Handle close of modal - onClick event of Cancel button
   const handleClose = () => {
     setOpen(false);
     setNewContact(defaultValues);
@@ -124,7 +121,7 @@ export const AddContact = () => {
     fetch(url, requestOptions)
     .then((res) => res.json())
     .then((data) => {
-      if(data.fieldErrors) {
+      if(data.fieldErrors) {  // If any field errors exist - set field error values
         data.fieldErrors.forEach(error => {
           if(error.field === "firstName"){
             setFirstNameError(error.message);
@@ -137,6 +134,7 @@ export const AddContact = () => {
           }
         });
       } else {
+        // On successful POST close modal & display alert to user
         setOpen(false);
         alert(`${newContact.firstName} ${newContact.firstName} Added To Contacts!`)
       };
@@ -187,7 +185,7 @@ export const AddContact = () => {
                 onChange={handleChange}
               />
               {
-                firstNameError ? <ErrorMessage>* {firstNameError}</ErrorMessage> : ""
+                firstNameError ? <ErrorMessage>{firstNameError}</ErrorMessage> : ""
               }
             </FormItem>
             <FormItem>
@@ -202,7 +200,7 @@ export const AddContact = () => {
                 onChange={handleChange}
               />
               {
-                lastNameError ? <ErrorMessage>* {lastNameError}</ErrorMessage> : ""
+                lastNameError ? <ErrorMessage>{lastNameError}</ErrorMessage> : ""
               }
             </FormItem>
             <FormItem>
@@ -217,7 +215,7 @@ export const AddContact = () => {
                 onChange={handleChange}
               />
               {
-                phoneNumberError ? <ErrorMessage>* {phoneNumberError}</ErrorMessage> : ""
+                phoneNumberError ? <ErrorMessage>{phoneNumberError}</ErrorMessage> : ""
               }
             </FormItem>
             <FormButtons>

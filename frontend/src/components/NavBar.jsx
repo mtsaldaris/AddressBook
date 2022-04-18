@@ -20,7 +20,7 @@ export const NavBar = () => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h5" align="left" sx={{ flexGrow: 1 }}>
-            Address Book
+            Address Book Application
           </Typography>
         </Toolbar>
       </AppBar>

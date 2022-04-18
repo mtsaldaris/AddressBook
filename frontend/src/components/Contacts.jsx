@@ -14,11 +14,11 @@ const Container = styled.div`
   width: 100%;
 `;
 
+// Function to choose a random colour for the each contact avatar based on string value
 function stringToColor(string) {
   let hash = 0;
   let i;
 
-  /* eslint-disable no-bitwise */
   for (i = 0; i < string.length; i += 1) {
     hash = string.charCodeAt(i) + ((hash << 5) - hash);
   }
@@ -29,11 +29,11 @@ function stringToColor(string) {
     const value = (hash >> (i * 8)) & 0xff;
     color += `00${value.toString(16)}`.slice(-2);
   }
-  /* eslint-enable no-bitwise */
 
   return color;
 }
 
+// Function to extract initials of first name & last name from contact
 function stringAvatar(contact) {
   return {
     sx: {

@@ -1,7 +1,6 @@
 import { NavBar } from './components/NavBar';
 import { Contacts } from './components/Contacts';
 import { AddContact } from './components/AddContact';
-
 import styled from 'styled-components';
 
 // Styled componenet declarations
@@ -20,21 +19,18 @@ const AddressBook = styled.div`
   border-radius: 5px;
   width: 25vw
 `;
-
 const Top = styled.div`
   padding: 5px;
   display: flex;
   border-bottom: 1.5px solid black;
   justify-content: space-between;
 `;
-
 const Bottom = styled.div`
   margin: 5px 0px;
   min-height: 400px;
   max-height: 600px;
   overflow-y:auto
 `;
-
 const Title = styled.span`
   margin: 5px;
   font-size: 22px;
