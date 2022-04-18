@@ -41,11 +41,13 @@ POST: Add a new Contact to database
 - `http://localhost:8080/api/v1/contact/add`
 
 ##### Payload:
-```{
+```
+{
 	"firstName": "Fred",
 	"lastName": "Jones",
 	"phoneNumber":  "0412345678" 
-}```
+}
+```
 
 ### React - Frontend
 
