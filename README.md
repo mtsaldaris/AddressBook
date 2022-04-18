@@ -21,7 +21,7 @@ spring.datasource.password=[PASSWORD]
 
 ### Backend - Java (Spring Boot) 
 
-The backend for this application was implemented using Spring Boot. A layered architecture was used based around the "Contact" Model.
+The backend for this application was implemented using Spring Boot. A layered architecture was used based around the "Contact" Model. An exception handler was also implemented to send out custom error responses for any validation errrors which was caught by the front end.
 To start the back end, first run `mvn install` then `mvn spring-boot:run` or `java -jar target/address-book-0.0.1.jar` to start the dev server on port 8080.
 
 #### REST API ENDPOINTS:
