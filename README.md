@@ -5,17 +5,12 @@ a user to store (between successive runs of the program) the name and phone numb
 - To enter a friends name and phone number using a form with input validation (backend).
 - To display the list of friends and their corresponding phone numbers sorted by their name.
 
-
-### Assumptions:
-- "AddressBook" table is initialised from "Contant" entity in Spring Boot backend.
-- Databse is seeded with 7 initial contacts.
-
 # Architecture & Usage
 
 ### Database - PostgreSQL
 
-A PostgreSQL database is used for this application. In order to connect to the database PostgreSQL must be running on port 542.
-Database connection configurations can be changed in file: `address-book\src\main\resources\application.properties`
+A PostgreSQL database is used for this application."AddressBook" table is initialised from "Contant" entity in Spring Boot backend. Databse is then seeded with 7 initial contacts. In order to connect to the database PostgreSQL server must be running on port 542.
+Database configuration can be changed in file: `address-book\src\main\resources\application.properties`
 
 Compulsary changes to connect to db:
 ```
@@ -24,7 +19,7 @@ spring.datasource.username=[USERNAME]
 spring.datasource.password=[PASSWORD]
 ```
 
-### Java (Spring Boot) - Backend
+### Backend - Java (Spring Boot) 
 
 The backend for this application was implemented using Spring Boot. A layered architecture was used based around the "Contact" Model.
 To start the back end, first run `mvn install` then `mvn spring-boot:run` or `java -jar target/address-book-0.0.1.jar` to start the dev server on port 8080.
@@ -49,7 +44,7 @@ To start the back end, first run `mvn install` then `mvn spring-boot:run` or `ja
 }
 ```
 
-### React - Frontend
+### Frontend- React
 
 The frontend was developed using ReactJS. It features a single page view for the Address Book with a UI component to display all contacts.
 There is a button which displays a modal with a form to add a new contact.
