@@ -29,17 +29,12 @@ public class ContactController {
         this.contactService = contactService;
     }
 
-    @GetMapping("/getAll")
+    @GetMapping()
     public List<Contact> getContacts() {
         return contactService.getContacts();
     }
 
-    @GetMapping("/getUnique")
-    public List<Contact> getUniqueContacts() {
-        return contactService.getUniqueContacts();
-    }
-
-    @PostMapping("/add")
+    @PostMapping()
     public ResponseEntity<Contact> createNewContact(@Valid @RequestBody Contact contact) {
         Contact newContact = contactService.addNewContact(contact);
         return new ResponseEntity<Contact>(newContact, HttpStatus.CREATED);

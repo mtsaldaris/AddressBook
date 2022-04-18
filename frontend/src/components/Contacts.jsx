@@ -51,7 +51,7 @@ export const Contacts = () => {
 
   // Fetch contacts from db
   const fetchContacts = () => {
-    const url = "http://localhost:8080/api/v1/contact/getAll";
+    const url = "http://localhost:8080/api/v1/contact";
     axios.get(url).then( res => {
       console.log(res);
       setContacts(res.data);

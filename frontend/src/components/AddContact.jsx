@@ -107,7 +107,7 @@ export const AddContact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const url = "http://localhost:8080/api/v1/contact/add";
+    const url = "http://localhost:8080/api/v1/contact";
     
     const requestOptions = {
       method: "POST",
@@ -136,7 +136,7 @@ export const AddContact = () => {
       } else {
         // On successful POST close modal & display alert to user
         setOpen(false);
-        alert(`${newContact.firstName} ${newContact.firstName} Added To Contacts!`)
+        alert(`${data.firstName} ${data.lastName} Added To Contacts!`)
       };
     }).catch((err) => err);
   };
