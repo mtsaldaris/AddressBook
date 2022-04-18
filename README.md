@@ -47,6 +47,6 @@ To start the back end, first run `mvn install` then `mvn spring-boot:run` or `ja
 ### Frontend- React
 
 The frontend was developed using ReactJS. It features a single page view for the Address Book with a UI component to display all contacts.
-There is a button which displays a modal with a form to add a new contact. The onSubmit function of the form catches any errors from the backend validation and displays them on the form. The form will not submit unless there is valid input.
+There is a button which displays a modal with a form to add a new contact. The onSubmit function of the form catches any errors from the backend validation and displays them on the form. The form will not submit unless there is valid input. When the form submits successfully, the modal will close and a success alert will be displayed. I did not have time to implement a callback to re-render the Contact compononent to re-run the GET API call so the page must be refreshed to see the newly added contact in the list.
 
 To deploy the front end, first run `npm install` to install dependencies then `npm start` to start the dev server on port 3000.
