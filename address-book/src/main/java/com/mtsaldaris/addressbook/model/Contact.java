@@ -41,17 +41,29 @@ public class Contact {
     // Ensure value is not null and not just white space
     @NotBlank(message = "First name is required")
     // Validate name is alphanumeric and can have hyphen or space
-    @Pattern(regexp = "^[a-zA-Z0-9\\- ]*$", message = "Name must be alphanumeric, can contain hyphen & space")
+    @Pattern(regexp = "^[a-zA-Z0-9\\- ]*$", message = "First name must be alphanumeric, can contain hyphen & space")
     @Column(
             name = "first_name",
             nullable = false,
             columnDefinition = "TEXT"
     )
-    private String name;
+    private String firstName;
+
+    // Ensure value is not null and not just white space
+    @NotBlank(message = "Last name is required")
+    // Validate name is alphanumeric and can have hyphen or space
+    @Pattern(regexp = "^[a-zA-Z0-9\\- ]*$", message = "Last name must be alphanumeric, can contain hyphen & space")
+    @Column(
+            name = "last_name",
+            nullable = false,
+            columnDefinition = "TEXT"
+    )
+    private String lastName;
 
     // Ensure value is not null and not just white space
     @NotBlank(message = "Phone number is required")
-    // Validate phone number
+    // Validate phone number is numeric - up to 11 digits and can include a plus symbol (e.g. +61422169922)
+    @Pattern(regexp= "^\\+?[0-9]{7,}$", message = "Please enter a valid phone number")
     @Column(
             name = "phone_number",
             nullable = false,
@@ -63,9 +75,11 @@ public class Contact {
     public Contact() {
     }
 
-    public Contact(String name,
+    public Contact(String firstName,
+                   String lastName,
                    String phoneNumber) {
-        this.name = name;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.phoneNumber = phoneNumber;
     }
 
@@ -78,12 +92,20 @@ public class Contact {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getPhoneNumber() {
@@ -101,7 +123,8 @@ public class Contact {
     public String toString() {
         return "Contact{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 '}';
     }

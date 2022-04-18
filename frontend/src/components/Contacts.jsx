@@ -7,8 +7,12 @@ import Divider from '@mui/material/Divider';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
-import Typography from '@mui/material/Typography';
-import Stack from '@mui/material/Stack';
+import styled from 'styled-components';
+
+// Styled componenet declarations
+const Container = styled.div`
+  width: 100%;
+`;
 
 function stringToColor(string) {
   let hash = 0;
@@ -30,64 +34,52 @@ function stringToColor(string) {
   return color;
 }
 
-function stringAvatar(name) {
+function stringAvatar(contact) {
   return {
     sx: {
-      bgcolor: stringToColor(name),
+      bgcolor: stringToColor(contact.firstName),
     },
-    children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`,
+    children: `${contact.firstName[0][0]}${contact.lastName[0][0]}`,
   };
 }
 
 
-export const AddressBookComponent = () => {
+export const Contacts = () => {
 
   const [contacts, setContacts] = useState([]);
 
 
   // Fetch contacts from db
   const fetchContacts = () => {
-    axios.get("http://localhost:8080/api/v1/contact/getAll").then( res => {
+    const url = "http://localhost:8080/api/v1/contact/getAll";
+    axios.get(url).then( res => {
       console.log(res);
       setContacts(res.data);
-    });
+    }).catch((err) => 
+      console.log(err));
   }
+  
   useEffect(() => {
     fetchContacts();
   }, [])
 
   return (
-    <div>
+    <Container>
       {contacts.map((contact, index) => (
-        <List key={index} sx={{ width: '100%', maxWidth: 500, bgcolor: 'background.paper' }}>
-          <ListItem alignItems="center">
+        <List key={index}>
+          <ListItem>
             <ListItemAvatar>
-            <Avatar {...stringAvatar(contact.name)} />
+              <Avatar {...stringAvatar(contact)} />
             </ListItemAvatar>
             <ListItemText
-              primary={contact.name}
-              secondary={
-                <React.Fragment>
-                  <Typography
-                    sx={{ display: 'inline' }}
-                    component="span"
-                    variant="body2"
-                    color="text.primary"
-                  >
-                    {contact.phoneNumber}
-                  </Typography>
-                </React.Fragment>
-              }
-            />
+              primary={contact.firstName + " " + contact.lastName}
+              secondary={contact.phoneNumber}
+            /> 
           </ListItem>
-          <Divider variant="inset" component="li" />
+          <Divider variant="middle" />
         </List>
         )
-      )};
-      
-
-
-
-    </div>
+      )}
+    </Container>
   )
 }

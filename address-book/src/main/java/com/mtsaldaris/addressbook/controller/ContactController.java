@@ -3,8 +3,11 @@ package com.mtsaldaris.addressbook.controller;
 import com.mtsaldaris.addressbook.model.Contact;
 import com.mtsaldaris.addressbook.service.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /*
@@ -37,7 +40,8 @@ public class ContactController {
     }
 
     @PostMapping("/add")
-    public void registerNewContact(@RequestBody Contact contact) {
-        contactService.addNewContact(contact);
+    public ResponseEntity<Contact> createNewContact(@Valid @RequestBody Contact contact) {
+        Contact newContact = contactService.addNewContact(contact);
+        return new ResponseEntity<Contact>(newContact, HttpStatus.CREATED);
     }
 }

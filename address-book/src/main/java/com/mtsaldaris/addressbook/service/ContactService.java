@@ -27,20 +27,18 @@ public class ContactService {
 
     // Fetch a list of all contacts from address book
     public List<Contact> getContacts() {
-        return contactRepository.findAll(Sort.by("name").ascending());
+        return contactRepository.findAll(Sort.by("firstName").ascending());
     }
 
     // Fetch a list of all unique contacts from two different address books
     public List<Contact> getUniqueContacts() {
         List<Contact> contact = new ArrayList<>();
-
-        // TODO: add logic for checking unique entries in two different address books
+        // TODO: add logic for checking unique entries in two different address book tables
         return contact;
     }
 
-
     // Add a new contact
-    public void addNewContact(Contact contact) {
-        contactRepository.save(contact);
+    public Contact addNewContact(Contact contact) {
+        return contactRepository.save(contact);
     }
 }

@@ -16,22 +16,44 @@ public class ContactConfig {
     CommandLineRunner commandLineRunner(ContactRepository repository) {
         return args -> {
             Contact myron = new Contact(
-                    "Myron T",
+                    "Myron",
+                    "Tsaldaris",
                     "0422123456"
             );
-
             Contact fred = new Contact(
-                    "Fred Jones",
+                    "Fred",
+                    "Jones",
                     "0412345678"
+            );
+            Contact bob = new Contact(
+                    "Bob",
+                    "Smith",
+                    "+61422345678"
+            );
+            Contact tom = new Contact(
+                    "Tom",
+                    "Jackson",
+                    "0412345678"
+            );
+            Contact garry = new Contact(
+                    "Garry",
+                    "Davis",
+                    "+61422654989"
+            );
+            Contact mary = new Contact(
+                    "Mary",
+                    "South",
+                    "0412745679"
+            );
+             Contact sarah = new Contact(
+                    "Sarah",
+                    "Mason",
+                    "+614365879"
             );
 
-            Contact bob = new Contact(
-                    "Bob Smith",
-                    "0412345678"
-            );
 
             repository.saveAll(
-                    List.of(myron, bob, fred)
+                    List.of(myron, bob, fred, tom, garry, mary, sarah)
             );
         };
     }
