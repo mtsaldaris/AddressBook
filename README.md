@@ -29,16 +29,16 @@ Compulsary changes to connect to db:
 The backend for this application was implemented using Spring Boot. A layered architecture was used based around the "Contact" Model.
 To start the back end, first run `mvn install` then `mvn spring-boot:run` or `java -jar target/address-book-0.0.1.jar` to start the dev server on port 8080.
 
-## REST ENDPOINTS:
+#### REST ENDPOINTS:
 
-GET: Get all contacts from database
-- `http://localhost:8080/api/v1/contact/getAll`
+##### GET: `http://localhost:8080/api/v1/contact/getAll`
+- Get all contacts from database
 
-GET: Get unique contacts - not implemented due to time constraints
-- `http://localhost:8080/api/v1/contact/getUniqueContacts`
+##### GET: `http://localhost:8080/api/v1/contact/getUniqueContacts`
+- Get unique contacts - not implemented due to time constraints
 
-POST: Add a new Contact to database
-- `http://localhost:8080/api/v1/contact/add`
+##### POST: `http://localhost:8080/api/v1/contact/add`
+- Add a new Contact to database 
 
 ##### Payload:
 ```
