@@ -26,13 +26,10 @@ To start the back end, first run `mvn install` then `mvn spring-boot:run` or `ja
 
 #### REST API ENDPOINTS:
 
-##### GET: `http://localhost:8080/api/v1/contact/getAll`
+##### GET: `http://localhost:8080/api/v1/contact`
 - Get all contacts from database
 
-##### GET: `http://localhost:8080/api/v1/contact/getUniqueContacts`
-- Get unique contacts - not implemented due to time constraints
-
-##### POST: `http://localhost:8080/api/v1/contact/add`
+##### POST: `http://localhost:8080/api/v1/contact`
 - Add a new Contact to database 
 
 ##### Payload:
